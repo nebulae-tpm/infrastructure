@@ -30,8 +30,8 @@ jobs:
       - run:
           name: Deploy Ingress GKE
           command: |
-            kubectl apply -f /workspace/deployment/gcp/gke/ingress-web-main.yml
             kubectl apply -f /workspace/deployment/gcp/gke/tls/iot-acme-cert.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/ingress-web-main.yml
 
 workflows:
   version: 2

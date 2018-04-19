@@ -24,3 +24,5 @@ spec:
       #   backend:
       #     serviceName: api-apollo
       #     servicePort: 8080
+  tls:
+  - secretName: cm-http-nginx-tls-web
