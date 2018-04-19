@@ -160,3 +160,21 @@ to deploy Ingress run the following command:
 
 ```kubectl apply -f [CONFIG_FILE]```
 
+
+
+
+
+
+crear namespace: 00-namaspace.yml
+Crear el service account: con yaml
+
+ejecutar CLI 
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user $(gcloud config get-value account)
+
+asignar roles: rbac.yaml
+crear templat4s objetos: issuer-crd y certificates-crd
+desplegar: cert-manager.yaml en este momento esta como deployment.yml
+crear el issuer: acme-issuer.yaml
+crear el secreto (donde queda el certidicado): acme-cert.yaml
+
+confifurar ingress 

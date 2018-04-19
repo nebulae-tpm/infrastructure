@@ -13,7 +13,7 @@ jobs:
             gcloud auth activate-service-account --key-file /root/gcloud-service-key.json            
             gcloud --quiet config set project $GKE_PROJECT_PROD
             gcloud --quiet config set compute/zone $GKE_ZONE_PROD
-            gcloud --quiet container clusters get-credentials $GKE_CLUSTER
+            gcloud --quiet container clusters get-credentials $GKE_CLUSTER 
       - run:
           name: Deploy Ingress GKE
           command: |
