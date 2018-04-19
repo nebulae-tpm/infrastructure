@@ -1,0 +1,19 @@
+## Example Certificate that uses multiple challenge mechanisms to obtain
+## a SAN certificate for multiple domains from the letsencrypt-staging issuer.
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: cm-http-nginx-tls-web
+spec:
+  secretName: cm-http-nginx-tls-web
+  issuerRef:
+    name: letsencrypt-prod
+  commonName: iot.nebulae.com.co
+  dnsNames:
+  - iot.nebulae.com.co
+  acme:
+    config:
+    - http01:
+        ingress: ingress-web-main
+      domains:
+      - iot.nebulae.com.co
