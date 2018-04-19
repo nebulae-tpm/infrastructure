@@ -25,4 +25,4 @@ spec:
       #     serviceName: api-apollo
       #     servicePort: 8080
   tls:
-  - secretName: cm-http-nginx-tls-web
+  - secretName: iot-http-nginx-tls-web
