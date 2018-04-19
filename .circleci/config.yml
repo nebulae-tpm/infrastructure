@@ -15,9 +15,23 @@ jobs:
             gcloud --quiet config set compute/zone $GKE_ZONE_PROD
             gcloud --quiet container clusters get-credentials $GKE_CLUSTER
       - run:
+          name: Deploy Letsencrypt
+          command: |
+            kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user $(gcloud config get-value account)
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/00-namespace.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/serviceaccount.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/clusterissuer-crd.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/certificate-crd.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/issuer-crd.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/rbac.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/deployment.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/acme-issuer.yaml
+
+      - run:
           name: Deploy Ingress GKE
           command: |
             kubectl apply -f /workspace/deployment/gcp/gke/ingress-web-main.yml
+            kubectl apply -f /workspace/deployment/gcp/gke/tls/iot-acme-cert.yaml
 
 workflows:
   version: 2
