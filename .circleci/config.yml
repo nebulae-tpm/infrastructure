@@ -32,6 +32,11 @@ jobs:
           command: |
             kubectl apply -f /workspace/deployment/gcp/gke/tls/iot-acme-cert.yaml
             kubectl apply -f /workspace/deployment/gcp/gke/ingress-web-main.yml
+      - run:
+          name: Deploy Events Source Persistence
+          command: |
+            kubectl apply -f /workspace/deployment/gcp/gke/gcloud-ssd-eventsSource.yaml
+            kubectl apply -f /workspace/deployment/gcp/gke/mongo-statefulset-eventsSource.yaml
 
 workflows:
   version: 2
