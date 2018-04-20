@@ -38,6 +38,13 @@ spec:
           volumeMounts:
             - name: mongo-persistent-storage
               mountPath: /data/db
+          resources:
+            limits:
+              cpu: "50m"
+              memory: "100Mi"
+            requests:
+              cpu: "200m"
+              memory: "1000Mi"
   volumeClaimTemplates:
   - metadata:
       name: mongo-persistent-storage
