@@ -27,7 +27,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-        - name: dbevents
+        - name: mongo
           image: mongo
           command:
             - mongod
