@@ -40,11 +40,11 @@ spec:
               mountPath: /data/db
           resources:
             limits:
-              cpu: "50m"
-              memory: "100Mi"
+              cpu: 200m
+              memory: 1000Mi
             requests:
-              cpu: "200m"
-              memory: "1000Mi"
+              cpu: 50m
+              memory: 100Mi
   volumeClaimTemplates:
   - metadata:
       name: mongo-persistent-storage
