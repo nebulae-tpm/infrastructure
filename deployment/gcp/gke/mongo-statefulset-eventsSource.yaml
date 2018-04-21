@@ -31,6 +31,10 @@ spec:
           image: mongo
           command:
             - mongod
+            - "--bind_ip"
+            - "0.0.0.0"
+            - "--port"
+            - "27017" 
             - "--replSet"
             - rs0
           ports:
