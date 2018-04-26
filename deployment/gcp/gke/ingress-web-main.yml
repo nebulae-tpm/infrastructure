@@ -9,7 +9,7 @@ metadata:
     nginx.com/sticky-cookie-services: "serviceName=auth-keycloak srv_id expires=1h path=/auth;"
 spec:  
   rules:
-  - host: tpm.nebulae.com.co
+  - host: iot.nebulae.com.co
     http:
       paths:  
       - path: /*
@@ -24,3 +24,5 @@ spec:
       #   backend:
       #     serviceName: api-apollo
       #     servicePort: 8080
+  tls:
+  - secretName: iot-http-nginx-tls-web
