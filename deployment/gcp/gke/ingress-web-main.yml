@@ -12,14 +12,14 @@ spec:
   - host: iot.nebulae.com.co
     http:
       paths:  
-      - path: /*
-        backend:
-          serviceName: auth-keycloak
-          servicePort: 80  
-      - path: /emi/*
+      - path: /
         backend:
           serviceName: frontend-emi
           servicePort: 80     
+      - path: /auth/*
+        backend:
+          serviceName: auth-keycloak
+          servicePort: 80        
       - path: /api/gateway/*
         backend:
           serviceName: api-gateway
