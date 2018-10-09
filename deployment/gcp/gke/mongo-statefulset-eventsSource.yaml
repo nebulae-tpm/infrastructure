@@ -35,8 +35,6 @@ spec:
             - "0.0.0.0"
             - "--port"
             - "27017" 
-            - "--wiredTigerCacheSizeGB"
-            - "0.7"
             - "--replSet"
             - rs0
           ports:
@@ -47,7 +45,7 @@ spec:
           resources:
             limits:
               cpu: 200m
-              memory: 1000Mi
+              memory: 2000Mi
             requests:
               cpu: 50m
               memory: 100Mi
