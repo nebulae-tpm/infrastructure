@@ -37,7 +37,7 @@ spec:
             - "27017" 
             - "--replSet"
             - "--wiredTigerCacheSizeGB"
-            - "0.7"
+            - "0.8"
             - rs0
           ports:
             - containerPort: 27017
